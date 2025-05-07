@@ -1,0 +1,1007 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\hubs\\roomhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\hubs\\roomhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\businesslogic\\services\\roomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\businesslogic\\services\\roomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\controllers\\roomcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\controllers\\roomcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\businesslogic\\interfaces\\iroomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\businesslogic\\interfaces\\iroomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\roomdetaildto .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\roomdetaildto .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\roomdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\roomdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dataaccess\\repositories\\roomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dataaccess\\repositories\\roomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\businesslogic\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\businesslogic\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\joinasguestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\joinasguestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\joinroomdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\joinroomdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\hubs\\iroomclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\hubs\\iroomclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\roomuserpermissiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\roomuserpermissiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\models\\roomuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\models\\roomuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\models\\guestuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\models\\guestuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\roomuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\roomuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\registeredroomuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\registeredroomuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\roomupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\roomupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dataaccess\\interfaces\\iroomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dataaccess\\interfaces\\iroomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\tokenresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\tokenresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\roomcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\roomcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\moviedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\moviedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\moviedetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\moviedetaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\models\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\models\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\validations\\requirepasswordifprivateattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\validations\\requirepasswordifprivateattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\iprivateroomdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\iprivateroomdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\businesslogic\\services\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\businesslogic\\services\\movieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\resetpasswordrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\resetpasswordrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\genredto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\genredto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\data\\watchpartydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\data\\watchpartydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\businesslogic\\services\\movieapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\businesslogic\\services\\movieapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\apimoviedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\apimoviedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\common\\moviequeryfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\common\\moviequeryfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\common\\paginatedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\common\\paginatedlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\businesslogic\\interfaces\\imovieapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\businesslogic\\interfaces\\imovieapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\common\\paginatedresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\common\\paginatedresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\businesslogic\\interfaces\\imovieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\businesslogic\\interfaces\\imovieservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\data\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\data\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\businesslogic\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\businesslogic\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dataaccess\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dataaccess\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dataaccess\\interfaces\\imovierepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dataaccess\\interfaces\\imovierepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dataaccess\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dataaccess\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\models\\moviegenre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\models\\moviegenre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\dtos\\forgotpasswordrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\dtos\\forgotpasswordrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\watchpartyapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\watchpartyapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\businesslogic\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\businesslogic\\interfaces\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\businesslogic\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\businesslogic\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\models\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\models\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\models\\watchlater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\models\\watchlater.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\models\\genre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\models\\genre.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\migrations\\20250504180551_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\migrations\\20250504180551_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\migrations\\20250506013314_nullableguestuserconnectionid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\migrations\\20250506013314_nullableguestuserconnectionid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 1831,
+          "SelectedChildIndex": 12,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "JoinRoomDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\JoinRoomDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\JoinRoomDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\JoinRoomDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\JoinRoomDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T00:18:54.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\LoginDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\LoginDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\LoginDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\LoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T19:00:35.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Program.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Program.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Program.cs",
+              "RelativeToolTip": "WatchPartyApp\\Program.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAtwIMAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T18:03:50.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\BusinessLogic\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Services\\AuthService.cs",
+              "RelativeToolTip": "WatchPartyApp\\BusinessLogic\\Services\\AuthService.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwI0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T19:02:12.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "WatchPartyApp\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAIwDYAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T19:34:34.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RoomController.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Controllers\\RoomController.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Controllers\\RoomController.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Controllers\\RoomController.cs",
+              "RelativeToolTip": "WatchPartyApp\\Controllers\\RoomController.cs",
+              "ViewState": "AgIAAAgBAAAAAAAAAAAswGYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T00:17:46.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RoomService.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Services\\RoomService.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\BusinessLogic\\Services\\RoomService.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Services\\RoomService.cs",
+              "RelativeToolTip": "WatchPartyApp\\BusinessLogic\\Services\\RoomService.cs",
+              "ViewState": "AgIAAAEBAAAAAAAAAIAwwPoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T22:53:24.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "RoomRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DataAccess\\Repositories\\RoomRepository.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DataAccess\\Repositories\\RoomRepository.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DataAccess\\Repositories\\RoomRepository.cs",
+              "RelativeToolTip": "WatchPartyApp\\DataAccess\\Repositories\\RoomRepository.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAmwCcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T23:57:12.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RoomDetailDto .cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\RoomDetailDto .cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\RoomDetailDto .cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\RoomDetailDto .cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\RoomDetailDto .cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T23:51:17.901Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RoomDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\RoomDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\RoomDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\RoomDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\RoomDto.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAmwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T23:51:17.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RoomHub.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Hubs\\RoomHub.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Hubs\\RoomHub.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Hubs\\RoomHub.cs*",
+              "RelativeToolTip": "WatchPartyApp\\Hubs\\RoomHub.cs*",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAwwIgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T22:09:21.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IRoomService.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Interfaces\\IRoomService.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\BusinessLogic\\Interfaces\\IRoomService.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Interfaces\\IRoomService.cs",
+              "RelativeToolTip": "WatchPartyApp\\BusinessLogic\\Interfaces\\IRoomService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T22:52:58.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "JoinAsGuestDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\JoinAsGuestDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\JoinAsGuestDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\JoinAsGuestDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\JoinAsGuestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T00:18:54.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "RoomUser.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\RoomUser.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Models\\RoomUser.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\RoomUser.cs",
+              "RelativeToolTip": "WatchPartyApp\\Models\\RoomUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T16:47:42.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GuestUser.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\GuestUser.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Models\\GuestUser.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\GuestUser.cs",
+              "RelativeToolTip": "WatchPartyApp\\Models\\GuestUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T16:47:41.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "RoomUserPermissionDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\RoomUserPermissionDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\RoomUserPermissionDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\RoomUserPermissionDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\RoomUserPermissionDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T23:51:18.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IRoomClient.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Hubs\\IRoomClient.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Hubs\\IRoomClient.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Hubs\\IRoomClient.cs",
+              "RelativeToolTip": "WatchPartyApp\\Hubs\\IRoomClient.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA9wBMAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T22:16:38.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IRoomRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DataAccess\\Interfaces\\IRoomRepository.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DataAccess\\Interfaces\\IRoomRepository.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DataAccess\\Interfaces\\IRoomRepository.cs",
+              "RelativeToolTip": "WatchPartyApp\\DataAccess\\Interfaces\\IRoomRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T23:57:12.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "RoomUserDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\RoomUserDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\RoomUserDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\RoomUserDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\RoomUserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T23:51:18.09Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "RegisteredRoomUserDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\RegisteredRoomUserDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\RegisteredRoomUserDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\RegisteredRoomUserDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\RegisteredRoomUserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T06:15:53.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "RoomUpdateDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\RoomUpdateDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\RoomUpdateDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\RoomUpdateDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\RoomUpdateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T23:51:17.489Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "MovieDetailDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\MovieDetailDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\MovieDetailDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\MovieDetailDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\MovieDetailDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T00:14:55.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "TokenResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\TokenResponseDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\TokenResponseDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\TokenResponseDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\TokenResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T19:00:35.396Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "20250506013314_NullableGuestUserConnectionId.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Migrations\\20250506013314_NullableGuestUserConnectionId.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Migrations\\20250506013314_NullableGuestUserConnectionId.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Migrations\\20250506013314_NullableGuestUserConnectionId.cs",
+              "RelativeToolTip": "WatchPartyApp\\Migrations\\20250506013314_NullableGuestUserConnectionId.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T01:33:14.691Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "RegisterDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\RegisterDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\RegisterDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\RegisterDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\RegisterDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T19:00:35.07Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "MovieDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\MovieDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\MovieDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\MovieDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\MovieDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T00:14:54.972Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "RoomCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\RoomCreateDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\RoomCreateDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\RoomCreateDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\RoomCreateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T23:51:17.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Room.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\Room.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Models\\Room.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\Room.cs",
+              "RelativeToolTip": "WatchPartyApp\\Models\\Room.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA4wA8AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T16:47:41.908Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "MovieService.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Services\\MovieService.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\BusinessLogic\\Services\\MovieService.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Services\\MovieService.cs",
+              "RelativeToolTip": "WatchPartyApp\\BusinessLogic\\Services\\MovieService.cs",
+              "ViewState": "AgIAAPAAAAAAAAAAAAAlwO0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T00:23:54.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "RequirePasswordIfPrivateAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Validations\\RequirePasswordIfPrivateAttribute.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Validations\\RequirePasswordIfPrivateAttribute.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Validations\\RequirePasswordIfPrivateAttribute.cs",
+              "RelativeToolTip": "WatchPartyApp\\Validations\\RequirePasswordIfPrivateAttribute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T00:59:23.019Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "IPrivateRoomDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\IPrivateRoomDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\IPrivateRoomDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\IPrivateRoomDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\IPrivateRoomDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-06T01:04:57.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ResetPasswordRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\ResetPasswordRequestDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\ResetPasswordRequestDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\ResetPasswordRequestDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\ResetPasswordRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T19:00:35.779Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "GenreDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\GenreDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\GenreDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\GenreDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\GenreDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T00:14:55.372Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "MoviesController.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Controllers\\MoviesController.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Controllers\\MoviesController.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Controllers\\MoviesController.cs",
+              "RelativeToolTip": "WatchPartyApp\\Controllers\\MoviesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T04:19:20.043Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "MovieApiService.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Services\\MovieApiService.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\BusinessLogic\\Services\\MovieApiService.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Services\\MovieApiService.cs",
+              "RelativeToolTip": "WatchPartyApp\\BusinessLogic\\Services\\MovieApiService.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwDEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T02:25:09.401Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Movie.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\Movie.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Models\\Movie.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\Movie.cs",
+              "RelativeToolTip": "WatchPartyApp\\Models\\Movie.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T16:47:42.378Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Data\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Data\\UnitOfWork.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Data\\UnitOfWork.cs",
+              "RelativeToolTip": "WatchPartyApp\\Data\\UnitOfWork.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAawCYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T00:21:21.069Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "WatchPartyDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Data\\WatchPartyDbContext.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Data\\WatchPartyDbContext.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Data\\WatchPartyDbContext.cs",
+              "RelativeToolTip": "WatchPartyApp\\Data\\WatchPartyDbContext.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAUwGMAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T16:55:01.272Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "PaginatedList.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Common\\PaginatedList.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Common\\PaginatedList.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Common\\PaginatedList.cs",
+              "RelativeToolTip": "WatchPartyApp\\Common\\PaginatedList.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwBQAAAB2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T22:45:23.208Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "IMovieApiService.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Interfaces\\IMovieApiService.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\BusinessLogic\\Interfaces\\IMovieApiService.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Interfaces\\IMovieApiService.cs",
+              "RelativeToolTip": "WatchPartyApp\\BusinessLogic\\Interfaces\\IMovieApiService.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAYwAoAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T02:25:09.195Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "MovieQueryFilter.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Common\\MovieQueryFilter.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Common\\MovieQueryFilter.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Common\\MovieQueryFilter.cs",
+              "RelativeToolTip": "WatchPartyApp\\Common\\MovieQueryFilter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T22:23:20.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "PaginatedResponse.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Common\\PaginatedResponse.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Common\\PaginatedResponse.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Common\\PaginatedResponse.cs",
+              "RelativeToolTip": "WatchPartyApp\\Common\\PaginatedResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T00:14:55.541Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "ApiMovieDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\ApiMovieDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\ApiMovieDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\ApiMovieDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\ApiMovieDto.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAADwvzMAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T02:26:15.441Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "IMovieService.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Interfaces\\IMovieService.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\BusinessLogic\\Interfaces\\IMovieService.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Interfaces\\IMovieService.cs",
+              "RelativeToolTip": "WatchPartyApp\\BusinessLogic\\Interfaces\\IMovieService.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAqwAkAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T00:12:13.151Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Data\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Data\\IUnitOfWork.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Data\\IUnitOfWork.cs",
+              "RelativeToolTip": "WatchPartyApp\\Data\\IUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T00:21:20.84Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\appsettings.json",
+              "RelativeDocumentMoniker": "WatchPartyApp\\appsettings.json",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\appsettings.json",
+              "RelativeToolTip": "WatchPartyApp\\appsettings.json",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAcwBcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-04T18:02:09.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\BusinessLogic\\Services\\EmailService.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Services\\EmailService.cs",
+              "RelativeToolTip": "WatchPartyApp\\BusinessLogic\\Services\\EmailService.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowCAAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T19:10:17.552Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "IGenericRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DataAccess\\Interfaces\\IGenericRepository.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DataAccess\\Interfaces\\IGenericRepository.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DataAccess\\Interfaces\\IGenericRepository.cs",
+              "RelativeToolTip": "WatchPartyApp\\DataAccess\\Interfaces\\IGenericRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T22:11:48.726Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "IMovieRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DataAccess\\Interfaces\\IMovieRepository.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DataAccess\\Interfaces\\IMovieRepository.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DataAccess\\Interfaces\\IMovieRepository.cs",
+              "RelativeToolTip": "WatchPartyApp\\DataAccess\\Interfaces\\IMovieRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T22:19:42.385Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DataAccess\\Repositories\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DataAccess\\Repositories\\GenericRepository.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DataAccess\\Repositories\\GenericRepository.cs",
+              "RelativeToolTip": "WatchPartyApp\\DataAccess\\Repositories\\GenericRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T22:11:48.494Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "MovieGenre.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\MovieGenre.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Models\\MovieGenre.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\MovieGenre.cs",
+              "RelativeToolTip": "WatchPartyApp\\Models\\MovieGenre.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T16:47:42.913Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "ForgotPasswordRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\ForgotPasswordRequestDto.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\DTOs\\ForgotPasswordRequestDto.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\DTOs\\ForgotPasswordRequestDto.cs",
+              "RelativeToolTip": "WatchPartyApp\\DTOs\\ForgotPasswordRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T19:00:35.551Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "WatchPartyApp.csproj",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp.csproj",
+              "RelativeDocumentMoniker": "WatchPartyApp\\WatchPartyApp.csproj",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp.csproj",
+              "RelativeToolTip": "WatchPartyApp\\WatchPartyApp.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-04T19:41:38.83Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "IEmailService.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Interfaces\\IEmailService.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\BusinessLogic\\Interfaces\\IEmailService.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Interfaces\\IEmailService.cs",
+              "RelativeToolTip": "WatchPartyApp\\BusinessLogic\\Interfaces\\IEmailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T19:10:04.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Interfaces\\IAuthService.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\BusinessLogic\\Interfaces\\IAuthService.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\BusinessLogic\\Interfaces\\IAuthService.cs",
+              "RelativeToolTip": "WatchPartyApp\\BusinessLogic\\Interfaces\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T18:56:47.147Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "20250504180551_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Migrations\\20250504180551_InitialCreate.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Migrations\\20250504180551_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Migrations\\20250504180551_InitialCreate.cs",
+              "RelativeToolTip": "WatchPartyApp\\Migrations\\20250504180551_InitialCreate.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T18:05:51.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "Genre.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\Genre.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Models\\Genre.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\Genre.cs",
+              "RelativeToolTip": "WatchPartyApp\\Models\\Genre.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T16:47:42.754Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "WatchLater.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\WatchLater.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Models\\WatchLater.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\WatchLater.cs",
+              "RelativeToolTip": "WatchPartyApp\\Models\\WatchLater.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T16:47:42.535Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "ChatMessage.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\ChatMessage.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Models\\ChatMessage.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\ChatMessage.cs",
+              "RelativeToolTip": "WatchPartyApp\\Models\\ChatMessage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T16:47:42.226Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "WatchPartyApp\\Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "WatchPartyApp\\Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T16:47:41.255Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+﻿using System.ComponentModel.DataAnnotations;
+using WatchPartyApp.DTOs;
+
+namespace WatchPartyApp.Validations
+{
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
+    public class RequirePasswordIfPrivateAttribute : ValidationAttribute
+    {
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            if (value is IPrivateRoomDto roomDto)
+            {
+                if (roomDto.IsPrivate && string.IsNullOrWhiteSpace(roomDto.Password))
+                {
+                    return new ValidationResult("Password is required for private rooms.",
+                        new[] { nameof(IPrivateRoomDto.Password) });
+                }
+            }
+
+            return ValidationResult.Success;
+        }
+    }
+}
