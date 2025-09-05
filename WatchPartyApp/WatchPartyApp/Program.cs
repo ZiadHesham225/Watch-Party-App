@@ -11,6 +11,7 @@ using WatchPartyApp.DataAccess.Interfaces;
 using WatchPartyApp.DataAccess.Repositories;
 using WatchPartyApp.Hubs;
 using WatchPartyApp.Models;
+using WatchPartyApp.Services.InMemory;
 
 namespace WatchPartyApp
 {
@@ -20,13 +21,20 @@ namespace WatchPartyApp
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            // Database configuration
             builder.Services.AddDbContext<WatchPartyDbContext>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
+            
             builder.Services.AddHttpClient();
 
-            builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<WatchPartyDbContext>().AddDefaultTokenProviders();
+            // Identity configuration
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<WatchPartyDbContext>()
+                .AddDefaultTokenProviders();
+
+            // JWT Authentication
             builder.Services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -52,42 +60,42 @@ namespace WatchPartyApp
                     OnMessageReceived = context =>
                     {
                         var accessToken = context.Request.Query["access_token"];
-
                         var path = context.HttpContext.Request.Path;
-                        if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/chat"))
+                        if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/hubs"))
                         {
                             context.Token = accessToken;
                         }
-
                         return Task.CompletedTask;
                     }
                 };
             });
+            
+            // In-memory services
+            builder.Services.AddSingleton<InMemoryRoomManager>();
+            
+            // Repository and service registrations
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<IEmailService, EmailService>();
             builder.Services.AddScoped<IRoomService, RoomService>();
-            builder.Services.AddScoped<IMovieApiService, MovieApiService>();
-            builder.Services.AddScoped<IMovieService, MovieService>();
-            builder.Services.AddScoped<IMovieRepository, MovieRepository>();
             builder.Services.AddScoped<IRoomRepository, RoomRepository>();
-            builder.Services.AddScoped<IGenericRepository<Genre>, GenericRepository<Genre>>();
-            builder.Services.AddScoped<IGenericRepository<WatchLater>, GenericRepository<WatchLater>>();
             builder.Services.AddScoped<IGenericRepository<Room>, GenericRepository<Room>>();
-            builder.Services.AddScoped<IGenericRepository<RoomUser>, GenericRepository<RoomUser>>();
-            builder.Services.AddScoped<IGenericRepository<ChatMessage>, GenericRepository<ChatMessage>>();
-            builder.Services.AddScoped<IGenericRepository<GuestUser>, GenericRepository<GuestUser>>();
+            
+            // SignalR
             builder.Services.AddSignalR();
 
+            // Web API
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
+            
+            // Swagger configuration
             builder.Services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Title = "WatchParty API",
                     Version = "v1",
-                    Description = "API for WatchParty application",
+                    Description = "API for WatchParty application - Room management and real-time synchronization",
                     Contact = new OpenApiContact
                     {
                         Name = "WatchParty Team"
@@ -120,11 +128,12 @@ namespace WatchPartyApp
                 });
             });
 
+            // CORS configuration
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowFrontend", policy =>
                 {
-                    policy.WithOrigins("http://127.0.0.1:5500", "http://localhost:3000")
+                    policy.WithOrigins("http://127.0.0.1:5500", "http://localhost:3000", "http://localhost:5173")
                     .AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials();
@@ -133,12 +142,10 @@ namespace WatchPartyApp
 
             var app = builder.Build();
 
+            // Configure the HTTP request pipeline
             if (app.Environment.IsDevelopment())
             {
-                app.UseSwagger(c =>
-                {
-                    c.SerializeAsV2 = false;
-                });
+                app.UseSwagger();
                 app.UseSwaggerUI(c =>
                 {
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "WatchParty API v1");
@@ -153,6 +160,7 @@ namespace WatchPartyApp
             app.UseAuthorization();
             app.MapControllers();
             app.MapHub<RoomHub>("/hubs/roomHub");
+            
             app.Run();
         }
     }

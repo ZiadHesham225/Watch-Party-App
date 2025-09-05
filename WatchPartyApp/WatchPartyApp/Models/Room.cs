@@ -4,7 +4,7 @@
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        public string MovieId { get; set; }
+        public string VideoUrl { get; set; } // Changed from MovieId to VideoUrl
         public string AdminId { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreatedAt { get; set; }
@@ -16,7 +16,6 @@
         public string? PasswordHash { get; set; }
 
         // Room configuration options
-        public bool AllowGuestControl { get; set; } = false;
         public bool AutoPlay { get; set; } = true;
         public string SyncMode { get; set; } = "strict";
 
@@ -26,8 +25,8 @@
 
         // Navigation properties
         public ApplicationUser Admin { get; set; }
-        public Movie Movie { get; set; }
-        public List<RoomUser> RoomUsers { get; set; }
-        public List<ChatMessage> Messages { get; set; }
+        
+        // Removed Movie navigation property and related collections
+        // Chat messages and participants are now handled in-memory
     }
 }

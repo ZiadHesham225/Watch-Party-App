@@ -1,0 +1,27 @@
+﻿using WatchPartyApp.DTOs;
+using WatchPartyApp.Models;
+
+namespace WatchPartyApp.BusinessLogic.Interfaces
+{
+    public interface IRoomService
+    {
+        Task<Room> CreateRoomAsync(RoomCreateDto roomDto, string userId);
+        Task<Room> GetRoomByIdAsync(string roomId);
+        Task<Room> GetRoomByInviteCodeAsync(string inviteCode);
+        Task<IEnumerable<RoomDto>> GetActiveRoomsAsync();
+        Task<IEnumerable<RoomDto>> GetUserRoomsAsync(string userId);
+        Task<bool> UpdateRoomAsync(RoomUpdateDto roomDto, string userId);
+        Task<bool> UpdateRoomVideoAsync(string roomId, string videoUrl, string videoTitle, string? videoThumbnail);
+        Task<bool> EndRoomAsync(string roomId, string userId);
+        Task<bool> UpdatePlaybackStateAsync(string roomId, string userId, double position, bool isPlaying);
+        Task<bool> ValidateRoomPasswordAsync(string roomId, string? password);
+        Task<string> GenerateInviteLink(string roomId);
+        Task<bool> IsUserAdminAsync(string roomId, string userId);
+        
+        // Removed methods that are now handled in-memory:
+        // - GetRoomUsersAsync, GetRegisteredRoomUsersAsync (participants are in-memory)
+        // - JoinRoomAsync, JoinRoomAsGuestAsync, LeaveRoomAsync, GuestLeaveRoomAsync (handled by RoomHub)
+        // - TransferAdminAsync, UpdateUserPermissionsAsync (control is handled in-memory)
+        // - IsUserInRoomAsync (participants are in-memory)
+    }
+}

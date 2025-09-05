@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using WatchPartyApp.BusinessLogic.Interfaces;
 using WatchPartyApp.DTOs;
+using WatchPartyApp.Services.InMemory;
 
 namespace WatchPartyApp.Controllers
 {
@@ -12,13 +12,16 @@ namespace WatchPartyApp.Controllers
     public class RoomController : ControllerBase
     {
         private readonly IRoomService _roomService;
+        private readonly InMemoryRoomManager _roomManager;
         private readonly ILogger<RoomController> _logger;
 
         public RoomController(
             IRoomService roomService,
+            InMemoryRoomManager roomManager,
             ILogger<RoomController> logger)
         {
             _roomService = roomService;
+            _roomManager = roomManager;
             _logger = logger;
         }
 
@@ -26,30 +29,65 @@ namespace WatchPartyApp.Controllers
         public async Task<IActionResult> GetActiveRooms()
         {
             var rooms = await _roomService.GetActiveRoomsAsync();
-            return Ok(rooms);
+            
+            // Enhance with participant count from in-memory store
+            var enhancedRooms = rooms.Select(room => 
+            {
+                room.UserCount = _roomManager.GetParticipantCount(room.Id);
+                return room;
+            }).ToList();
+            
+            return Ok(enhancedRooms);
         }
-        [HttpGet("{roomId}/users")]
-        public async Task<IActionResult> GetRoomUsers(string roomId)
+
+        [HttpGet("{roomId}/participants")]
+        public async Task<IActionResult> GetRoomParticipants(string roomId)
         {
-            var roomUsers = await _roomService.GetRoomUsersAsync(roomId);
-            if (roomUsers == null)
+            // Check if room exists
+            var room = await _roomService.GetRoomByIdAsync(roomId);
+            if (room == null)
             {
                 return NotFound("Room not found");
             }
 
-            return Ok(roomUsers);
+            // Get participants from in-memory store
+            var participants = _roomManager.GetRoomParticipants(roomId);
+            var participantDtos = participants.Select(p => new RoomParticipantDto
+            {
+                Id = p.Id,
+                DisplayName = p.DisplayName,
+                AvatarUrl = p.AvatarUrl,
+                HasControl = p.HasControl,
+                JoinedAt = p.JoinedAt,
+                IsAdmin = p.Id == room.AdminId
+            }).ToList();
+
+            return Ok(participantDtos);
         }
 
-        [HttpGet("{roomId}/registered-users")]
-        public async Task<IActionResult> GetRegisteredRoomUsers(string roomId)
+        [HttpGet("{roomId}/messages")]
+        public async Task<IActionResult> GetRoomMessages(string roomId)
         {
-            var registeredUsers = await _roomService.GetRegisteredRoomUsersAsync(roomId);
-            if (registeredUsers == null)
+            // Check if room exists
+            var room = await _roomService.GetRoomByIdAsync(roomId);
+            if (room == null)
             {
                 return NotFound("Room not found");
             }
 
-            return Ok(registeredUsers);
+            // Get messages from in-memory store
+            var messages = _roomManager.GetRoomMessages(roomId);
+            var messageDtos = messages.Select(m => new ChatMessageDto
+            {
+                Id = m.Id,
+                SenderId = m.SenderId,
+                SenderName = m.SenderName,
+                AvatarUrl = m.AvatarUrl,
+                Content = m.Content,
+                SentAt = m.SentAt
+            }).ToList();
+
+            return Ok(messageDtos);
         }
 
         [Authorize]
@@ -61,8 +99,17 @@ namespace WatchPartyApp.Controllers
             {
                 return Unauthorized();
             }
+            
             var rooms = await _roomService.GetUserRoomsAsync(userId);
-            return Ok(rooms);
+            
+            // Enhance with participant count from in-memory store
+            var enhancedRooms = rooms.Select(room => 
+            {
+                room.UserCount = _roomManager.GetParticipantCount(room.Id);
+                return room;
+            }).ToList();
+            
+            return Ok(enhancedRooms);
         }
 
         [HttpGet("{roomId}")]
@@ -73,7 +120,40 @@ namespace WatchPartyApp.Controllers
             {
                 return NotFound();
             }
-            return Ok(room);
+
+            // Create detailed DTO with participant information
+            var participants = _roomManager.GetRoomParticipants(roomId);
+            var participantDtos = participants.Select(p => new RoomParticipantDto
+            {
+                Id = p.Id,
+                DisplayName = p.DisplayName,
+                AvatarUrl = p.AvatarUrl,
+                HasControl = p.HasControl,
+                JoinedAt = p.JoinedAt,
+                IsAdmin = p.Id == room.AdminId
+            }).ToList();
+
+            var roomDetailDto = new RoomDetailDto
+            {
+                Id = room.Id,
+                Name = room.Name,
+                VideoUrl = room.VideoUrl,
+                AdminId = room.AdminId,
+                AdminName = "Admin", // Will need to get from user service
+                IsActive = room.IsActive,
+                CreatedAt = room.CreatedAt,
+                InviteCode = room.InviteCode,
+                IsPrivate = room.IsPrivate,
+                HasPassword = !string.IsNullOrEmpty(room.PasswordHash),
+                UserCount = participants.Count,
+                CurrentPosition = room.CurrentPosition,
+                IsPlaying = room.IsPlaying,
+                SyncMode = room.SyncMode,
+                AutoPlay = room.AutoPlay,
+                Participants = participantDtos
+            };
+
+            return Ok(roomDetailDto);
         }
 
         [HttpGet("invite/{inviteCode}")]
@@ -84,16 +164,14 @@ namespace WatchPartyApp.Controllers
             {
                 return NotFound();
             }
+            
             return Ok(new
             {
                 room.Id,
                 room.Name,
                 room.IsPrivate,
                 RequiresPassword = !string.IsNullOrEmpty(room.PasswordHash),
-                MovieId = room.MovieId,
-                MovieTitle = room.Movie?.Title,
-                MoviePosterUrl = room.Movie?.PosterUrl,
-                AdminName = room.Admin?.DisplayName ?? room.Admin?.UserName
+                AdminName = "Admin"
             });
         }
 
@@ -112,6 +190,7 @@ namespace WatchPartyApp.Controllers
             {
                 return BadRequest("Unable to create room");
             }
+            
             var inviteLink = await _roomService.GenerateInviteLink(room.Id);
 
             return Ok(new
@@ -162,8 +241,38 @@ namespace WatchPartyApp.Controllers
         }
 
         [Authorize]
-        [HttpPost("{roomId}/join")]
-        public async Task<IActionResult> JoinRoom(string roomId, [FromBody] JoinRoomDto joinDto)
+        [HttpPost("{roomId}/transfer-control")]
+        public async Task<IActionResult> TransferControl(string roomId, [FromBody] TransferControlDto transferDto)
+        {
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(currentUserId))
+            {
+                return Unauthorized();
+            }
+
+            // Check if user is admin
+            bool isAdmin = await _roomService.IsUserAdminAsync(roomId, currentUserId);
+            if (!isAdmin)
+            {
+                return Forbid("Only room administrators can transfer control.");
+            }
+
+            // Check if target participant exists
+            var targetParticipant = _roomManager.GetParticipant(roomId, transferDto.NewControllerId);
+            if (targetParticipant == null)
+            {
+                return BadRequest("Target participant not found in room.");
+            }
+
+            // Transfer control
+            _roomManager.SetController(roomId, transferDto.NewControllerId);
+
+            return Ok(new { message = "Control transferred successfully" });
+        }
+
+        [Authorize]
+        [HttpPost("{roomId}/take-control")]
+        public async Task<IActionResult> TakeControl(string roomId)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (string.IsNullOrEmpty(userId))
@@ -171,110 +280,31 @@ namespace WatchPartyApp.Controllers
                 return Unauthorized();
             }
 
-            var success = await _roomService.JoinRoomAsync(roomId, userId, joinDto.Password);
-            if (!success)
+            // Check if user is admin
+            bool isAdmin = await _roomService.IsUserAdminAsync(roomId, userId);
+            if (!isAdmin)
             {
-                return BadRequest("Unable to join room");
+                return Forbid("Only room administrators can take control.");
             }
 
-            return Ok();
+            // Check if admin is in the room
+            var adminParticipant = _roomManager.GetParticipant(roomId, userId);
+            if (adminParticipant == null)
+            {
+                return BadRequest("You must be in the room to take control.");
+            }
+
+            // Transfer control to admin
+            _roomManager.SetController(roomId, userId);
+
+            return Ok(new { message = "Control taken successfully" });
         }
 
-        [HttpPost("{roomId}/join-guest")]
-        public async Task<IActionResult> JoinRoomAsGuest(string roomId, [FromBody] JoinAsGuestDto joinDto)
-        {
-            if (string.IsNullOrEmpty(joinDto.DisplayName))
-            {
-                return BadRequest("Display name is required");
-            }
+        // Simplified endpoints - no more join/leave since they're handled via SignalR
+    }
 
-            var success = await _roomService.JoinRoomAsGuestAsync(roomId, joinDto.DisplayName, joinDto.Password);
-            if (!success)
-            {
-                return BadRequest("Unable to join room");
-            }
-
-            return Ok();
-        }
-
-        [Authorize]
-        [HttpPost("{roomId}/leave")]
-        public async Task<IActionResult> LeaveRoom(string roomId)
-        {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (string.IsNullOrEmpty(userId))
-            {
-                return Unauthorized();
-            }
-
-            var success = await _roomService.LeaveRoomAsync(roomId, userId);
-            if (!success)
-            {
-                return BadRequest("Unable to leave room");
-            }
-
-            return Ok();
-        }
-
-        [HttpPost("{roomId}/leave-guest")]
-        public async Task<IActionResult> GuestLeaveRoom(string roomId, string guestId)
-        {
-            if (string.IsNullOrEmpty(guestId))
-            {
-                return BadRequest("Guest ID is required");
-            }
-
-            var success = await _roomService.GuestLeaveRoomAsync(roomId, guestId);
-            if (!success)
-            {
-                return BadRequest("Unable to leave room");
-            }
-
-            return Ok();
-        }
-        [Authorize]
-        [HttpPost("{roomId}/transfer-admin")]
-        public async Task<IActionResult> TransferAdmin(string roomId, string newAdminId)
-        {
-            if (string.IsNullOrEmpty(newAdminId))
-            {
-                return BadRequest("New admin ID is required");
-            }
-            var currentAdminId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (string.IsNullOrEmpty(currentAdminId))
-            {
-                return Unauthorized();
-            }
-
-            var success = await _roomService.TransferAdminAsync(roomId, currentAdminId, newAdminId);
-            if (!success)
-            {
-                return BadRequest("Unable to transfer admin rights");
-            }
-
-            return Ok(new { message = "Admin rights transferred successfully" });
-        }
-
-        [Authorize]
-        [HttpPut("{roomId}/permissions/{targetUserId}")]
-        public async Task<IActionResult> UpdateUserPermissions(
-            string roomId,
-            string targetUserId,
-            [FromBody] RoomUserPermissionDto permissions)
-        {
-            var adminId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            if (string.IsNullOrEmpty(adminId))
-            {
-                return Unauthorized();
-            }
-
-            var success = await _roomService.UpdateUserPermissionsAsync(roomId, targetUserId, adminId, permissions);
-            if (!success)
-            {
-                return BadRequest("Unable to update permissions");
-            }
-
-            return Ok();
-        }
+    public class TransferControlDto
+    {
+        public required string NewControllerId { get; set; }
     }
 }

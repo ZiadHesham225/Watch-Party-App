@@ -2,19 +2,16 @@
 {
     public class RoomDto
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string MovieId { get; set; }
-        public string MovieTitle { get; set; }
-        public string MoviePosterUrl { get; set; }
-        public string AdminId { get; set; }
-        public string AdminName { get; set; }
+        public required string Id { get; set; }
+        public required string Name { get; set; }
+        public required string VideoUrl { get; set; }
+        public required string AdminId { get; set; }
+        public required string AdminName { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreatedAt { get; set; }
-        public string InviteCode { get; set; }
+        public required string InviteCode { get; set; }
         public bool IsPrivate { get; set; }
         public bool HasPassword { get; set; }
-        public bool AllowGuestControl { get; set; }
         public int UserCount { get; set; }
     }
 }

@@ -233,198 +233,6 @@ namespace WatchPartyApp.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("WatchPartyApp.Models.ChatMessage", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Content")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsFromGuest")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("RoomId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("SenderId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SenderName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("SentAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoomId");
-
-                    b.ToTable("ChatMessages");
-                });
-
-            modelBuilder.Entity("WatchPartyApp.Models.Genre", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Genres");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Action"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Comedy"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Drama"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Horror"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Name = "Science Fiction"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Name = "Thriller"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Name = "Romance"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Documentary"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Name = "Animation"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Name = "Family"
-                        });
-                });
-
-            modelBuilder.Entity("WatchPartyApp.Models.GuestUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Avatar")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConnectionId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DisplayName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("LastSeen")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Guests");
-                });
-
-            modelBuilder.Entity("WatchPartyApp.Models.Movie", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("AddedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<TimeSpan>("Duration")
-                        .HasColumnType("time");
-
-                    b.Property<DateTime>("LastUpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("PosterUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Rating")
-                        .HasColumnType("float");
-
-                    b.Property<string>("ReleaseYear")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StreamingUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Movies");
-                });
-
-            modelBuilder.Entity("WatchPartyApp.Models.MovieGenre", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("GenreId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("MovieId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GenreId");
-
-                    b.HasIndex("MovieId");
-
-                    b.ToTable("MovieGenres");
-                });
-
             modelBuilder.Entity("WatchPartyApp.Models.Room", b =>
                 {
                     b.Property<string>("Id")
@@ -433,9 +241,6 @@ namespace WatchPartyApp.Migrations
                     b.Property<string>("AdminId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<bool>("AllowGuestControl")
-                        .HasColumnType("bit");
 
                     b.Property<bool>("AutoPlay")
                         .HasColumnType("bit");
@@ -462,10 +267,6 @@ namespace WatchPartyApp.Migrations
                     b.Property<bool>("IsPrivate")
                         .HasColumnType("bit");
 
-                    b.Property<string>("MovieId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -477,77 +278,15 @@ namespace WatchPartyApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("VideoUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AdminId");
 
-                    b.HasIndex("MovieId");
-
                     b.ToTable("Rooms");
-                });
-
-            modelBuilder.Entity("WatchPartyApp.Models.RoomUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("DisplayName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GuestId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<bool>("HasPlaybackControl")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasVolumeControl")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("JoinedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("RoomId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GuestId");
-
-                    b.HasIndex("RoomId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("RoomUsers");
-                });
-
-            modelBuilder.Entity("WatchPartyApp.Models.WatchLater", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("AddedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("MovieId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MovieId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("WatchLaterItems");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -601,36 +340,6 @@ namespace WatchPartyApp.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WatchPartyApp.Models.ChatMessage", b =>
-                {
-                    b.HasOne("WatchPartyApp.Models.Room", "Room")
-                        .WithMany("Messages")
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Room");
-                });
-
-            modelBuilder.Entity("WatchPartyApp.Models.MovieGenre", b =>
-                {
-                    b.HasOne("WatchPartyApp.Models.Genre", "Genre")
-                        .WithMany("MovieGenres")
-                        .HasForeignKey("GenreId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WatchPartyApp.Models.Movie", "Movie")
-                        .WithMany("MovieGenres")
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Genre");
-
-                    b.Navigation("Movie");
-                });
-
             modelBuilder.Entity("WatchPartyApp.Models.Room", b =>
                 {
                     b.HasOne("WatchPartyApp.Models.ApplicationUser", "Admin")
@@ -639,94 +348,12 @@ namespace WatchPartyApp.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("WatchPartyApp.Models.Movie", "Movie")
-                        .WithMany("Rooms")
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.Navigation("Admin");
-
-                    b.Navigation("Movie");
-                });
-
-            modelBuilder.Entity("WatchPartyApp.Models.RoomUser", b =>
-                {
-                    b.HasOne("WatchPartyApp.Models.GuestUser", "Guest")
-                        .WithMany("JoinedRooms")
-                        .HasForeignKey("GuestId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("WatchPartyApp.Models.Room", "Room")
-                        .WithMany("RoomUsers")
-                        .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WatchPartyApp.Models.ApplicationUser", "User")
-                        .WithMany("JoinedRooms")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.Navigation("Guest");
-
-                    b.Navigation("Room");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("WatchPartyApp.Models.WatchLater", b =>
-                {
-                    b.HasOne("WatchPartyApp.Models.Movie", "Movie")
-                        .WithMany("WatchLaterItems")
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WatchPartyApp.Models.ApplicationUser", "User")
-                        .WithMany("WatchLaterItems")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Movie");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("WatchPartyApp.Models.ApplicationUser", b =>
                 {
                     b.Navigation("CreatedRooms");
-
-                    b.Navigation("JoinedRooms");
-
-                    b.Navigation("WatchLaterItems");
-                });
-
-            modelBuilder.Entity("WatchPartyApp.Models.Genre", b =>
-                {
-                    b.Navigation("MovieGenres");
-                });
-
-            modelBuilder.Entity("WatchPartyApp.Models.GuestUser", b =>
-                {
-                    b.Navigation("JoinedRooms");
-                });
-
-            modelBuilder.Entity("WatchPartyApp.Models.Movie", b =>
-                {
-                    b.Navigation("MovieGenres");
-
-                    b.Navigation("Rooms");
-
-                    b.Navigation("WatchLaterItems");
-                });
-
-            modelBuilder.Entity("WatchPartyApp.Models.Room", b =>
-                {
-                    b.Navigation("Messages");
-
-                    b.Navigation("RoomUsers");
                 });
 #pragma warning restore 612, 618
         }

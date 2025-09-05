@@ -64,254 +64,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WatchPartyApp.Controllers.MoviesController",
-    "Method": "GetMovies",
-    "RelativePath": "api/Movies",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "Search",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "GenresIds",
-        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": false
-      },
-      {
-        "Name": "Year",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "SortBy",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "SortDirection",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Page",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "WatchPartyApp.Common.PaginatedResponse\u00601[[WatchPartyApp.DTOs.MovieDto, WatchPartyApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "WatchPartyApp.Controllers.MoviesController",
-    "Method": "GetMovie",
-    "RelativePath": "api/Movies/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "WatchPartyApp.DTOs.MovieDetailDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "WatchPartyApp.Controllers.MoviesController",
-    "Method": "GetSimilarMovies",
-    "RelativePath": "api/Movies/{id}/similar",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "count",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WatchPartyApp.DTOs.MovieDto, WatchPartyApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "WatchPartyApp.Controllers.MoviesController",
-    "Method": "GetMoviesByGenre",
-    "RelativePath": "api/Movies/genre/{genreId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "genreId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "page",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "pageSize",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WatchPartyApp.DTOs.MovieDto, WatchPartyApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "WatchPartyApp.Controllers.MoviesController",
-    "Method": "GetTopRatedMovies",
-    "RelativePath": "api/Movies/top-rated",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "count",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WatchPartyApp.DTOs.MovieDto, WatchPartyApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "WatchPartyApp.Controllers.MoviesController",
-    "Method": "GetWatchLaterList",
-    "RelativePath": "api/Movies/watch-later",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WatchPartyApp.DTOs.MovieDto, WatchPartyApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "WatchPartyApp.Controllers.MoviesController",
-    "Method": "AddToWatchLater",
-    "RelativePath": "api/Movies/watch-later/{id}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WatchPartyApp.Controllers.MoviesController",
-    "Method": "RemoveFromWatchLater",
-    "RelativePath": "api/Movies/watch-later/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WatchPartyApp.Controllers.MoviesController",
-    "Method": "IsInWatchLater",
-    "RelativePath": "api/Movies/watch-later/check/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Boolean",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
     "ContainingType": "WatchPartyApp.Controllers.RoomController",
     "Method": "GetRoomById",
     "RelativePath": "api/Room/{roomId}",
@@ -345,113 +97,8 @@
   },
   {
     "ContainingType": "WatchPartyApp.Controllers.RoomController",
-    "Method": "JoinRoom",
-    "RelativePath": "api/Room/{roomId}/join",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "roomId",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "joinDto",
-        "Type": "WatchPartyApp.DTOs.JoinRoomDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WatchPartyApp.Controllers.RoomController",
-    "Method": "JoinRoomAsGuest",
-    "RelativePath": "api/Room/{roomId}/join-guest",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "roomId",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "joinDto",
-        "Type": "WatchPartyApp.DTOs.JoinAsGuestDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WatchPartyApp.Controllers.RoomController",
-    "Method": "LeaveRoom",
-    "RelativePath": "api/Room/{roomId}/leave",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "roomId",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WatchPartyApp.Controllers.RoomController",
-    "Method": "GuestLeaveRoom",
-    "RelativePath": "api/Room/{roomId}/leave-guest",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "roomId",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "guestId",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WatchPartyApp.Controllers.RoomController",
-    "Method": "UpdateUserPermissions",
-    "RelativePath": "api/Room/{roomId}/permissions/{targetUserId}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "roomId",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "targetUserId",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "permissions",
-        "Type": "WatchPartyApp.DTOs.RoomUserPermissionDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WatchPartyApp.Controllers.RoomController",
-    "Method": "GetRegisteredRoomUsers",
-    "RelativePath": "api/Room/{roomId}/registered-users",
+    "Method": "GetRoomMessages",
+    "RelativePath": "api/Room/{roomId}/messages",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -466,8 +113,40 @@
   },
   {
     "ContainingType": "WatchPartyApp.Controllers.RoomController",
-    "Method": "TransferAdmin",
-    "RelativePath": "api/Room/{roomId}/transfer-admin",
+    "Method": "GetRoomParticipants",
+    "RelativePath": "api/Room/{roomId}/participants",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WatchPartyApp.Controllers.RoomController",
+    "Method": "TakeControl",
+    "RelativePath": "api/Room/{roomId}/take-control",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WatchPartyApp.Controllers.RoomController",
+    "Method": "TransferControl",
+    "RelativePath": "api/Room/{roomId}/transfer-control",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -478,24 +157,8 @@
         "IsRequired": true
       },
       {
-        "Name": "newAdminId",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "WatchPartyApp.Controllers.RoomController",
-    "Method": "GetRoomUsers",
-    "RelativePath": "api/Room/{roomId}/users",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "roomId",
-        "Type": "System.String",
+        "Name": "transferDto",
+        "Type": "WatchPartyApp.Controllers.TransferControlDto",
         "IsRequired": true
       }
     ],

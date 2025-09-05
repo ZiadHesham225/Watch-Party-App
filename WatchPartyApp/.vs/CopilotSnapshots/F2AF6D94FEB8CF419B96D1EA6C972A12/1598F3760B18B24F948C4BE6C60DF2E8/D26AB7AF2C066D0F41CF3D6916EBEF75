@@ -1,0 +1,20 @@
+﻿using WatchPartyApp.Validations;
+
+namespace WatchPartyApp.DTOs
+{
+    public class RoomCreateDto : IPrivateRoomDto
+    {
+        public string Name { get; set; }
+        public string VideoUrl { get; set; }
+        public string VideoTitle { get; set; }
+        public string? VideoThumbnail { get; set; }
+        public bool IsPrivate { get; set; } = false;
+        
+        [RequirePasswordIfPrivate]
+        public string? Password { get; set; }
+        
+        public bool AllowGuestControl { get; set; } = false;
+        public bool AutoPlay { get; set; } = true;
+        public string SyncMode { get; set; } = "strict";
+    }
+}

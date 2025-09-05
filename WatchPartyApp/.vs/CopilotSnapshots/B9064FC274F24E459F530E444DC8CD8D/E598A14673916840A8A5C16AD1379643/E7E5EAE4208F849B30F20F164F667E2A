@@ -1,0 +1,896 @@
+﻿using Microsoft.AspNetCore.Identity;
+using WatchPartyApp.BusinessLogic.Interfaces;
+using WatchPartyApp.Data;
+using WatchPartyApp.DTOs;
+using WatchPartyApp.Models;
+
+namespace WatchPartyApp.BusinessLogic.Services
+{
+    public class RoomService : IRoomService
+    {
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMovieService _movieService;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ILogger<RoomService> _logger;
+
+        public RoomService(
+            IUnitOfWork unitOfWork,
+            IMovieService movieService,
+            UserManager<ApplicationUser> userManager,
+            ILogger<RoomService> logger)
+        {
+            _unitOfWork = unitOfWork;
+            _movieService = movieService;
+            _userManager = userManager;
+            _logger = logger;
+        }
+
+        public async Task<Room> CreateRoomAsync(RoomCreateDto roomDto, string userId)
+        {
+            try
+            {
+                // Validate input
+                if (string.IsNullOrWhiteSpace(roomDto.Name))
+                {
+                    _logger.LogWarning("Room creation failed: Room name is required");
+                    return null;
+                }
+
+                var movie = await _movieService.SaveMovieForRoomAsync(roomDto.MovieId);
+                if (movie == null)
+                {
+                    _logger.LogWarning("Room creation failed: Movie with ID {MovieId} not found", roomDto.MovieId);
+                    return null;
+                }
+
+                var room = new Room
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = roomDto.Name.Trim(),
+                    MovieId = roomDto.MovieId,
+                    AdminId = userId,
+                    IsActive = true,
+                    CreatedAt = DateTime.UtcNow,
+                    InviteCode = GenerateInviteCode(),
+                    IsPrivate = roomDto.IsPrivate,
+                    AllowGuestControl = roomDto.AllowGuestControl,
+                    AutoPlay = roomDto.AutoPlay,
+                    SyncMode = roomDto.SyncMode ?? "strict", // Default sync mode
+                    CurrentPosition = 0,
+                    IsPlaying = false
+                };
+
+                // Handle password for private rooms
+                if (roomDto.IsPrivate && !string.IsNullOrEmpty(roomDto.Password))
+                {
+                    room.PasswordHash = BCrypt.Net.BCrypt.HashPassword(roomDto.Password);
+                }
+
+                await _unitOfWork.Rooms.CreateAsync(room);
+
+                // Add the admin as the first user
+                var user = await _userManager.FindByIdAsync(userId);
+                if (user == null)
+                {
+                    _logger.LogError("User with ID {UserId} not found when creating room", userId);
+                    return null;
+                }
+
+                var roomUser = new RoomUser
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    RoomId = room.Id,
+                    UserId = userId,
+                    DisplayName = user.DisplayName ?? user.UserName ?? "Unknown User",
+                    HasPlaybackControl = true,
+                    HasVolumeControl = true,
+                    JoinedAt = DateTime.UtcNow
+                };
+
+                await _unitOfWork.RoomUsers.CreateAsync(roomUser);
+                await _unitOfWork.SaveAsync();
+
+                return room;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error creating room");
+                return null;
+            }
+        }
+
+        public async Task<RoomDetailDto> GetRoomByIdAsync(string roomId)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(roomId))
+                {
+                    return null;
+                }
+
+                var room = await _unitOfWork.Rooms.GetRoomWithDetailsAsync(roomId);
+                return MapRoomToRoomDetailDto(room);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error getting room details by ID: {RoomId}", roomId);
+                return null;
+            }
+        }
+
+        public async Task<Room> GetRoomByInviteCodeAsync(string inviteCode)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(inviteCode))
+                {
+                    return null;
+                }
+
+                return await _unitOfWork.Rooms.GetRoomByInviteCodeAsync(inviteCode);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error getting room by invite code: {InviteCode}", inviteCode);
+                return null;
+            }
+        }
+
+        public async Task<IEnumerable<RoomDto>> GetActiveRoomsAsync()
+        {
+            try
+            {
+                var rooms = await _unitOfWork.Rooms.GetActiveRoomsAsync();
+                return rooms.Select(MapToRoomDto);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error getting active rooms");
+                return Enumerable.Empty<RoomDto>();
+            }
+        }
+
+        public async Task<IEnumerable<RoomDto>> GetUserRoomsAsync(string userId)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(userId))
+                {
+                    return Enumerable.Empty<RoomDto>();
+                }
+
+                var createdRooms = await _unitOfWork.Rooms.GetRoomsByAdminAsync(userId);
+                var joinedRooms = await _unitOfWork.Rooms.GetRoomsJoinedByUserAsync(userId);
+
+                var allRooms = createdRooms.Union(joinedRooms, new RoomIdComparer());
+                return allRooms.Select(MapToRoomDto);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error getting rooms for user: {UserId}", userId);
+                return Enumerable.Empty<RoomDto>();
+            }
+        }
+
+        public async Task<bool> UpdateRoomAsync(RoomUpdateDto roomDto, string userId)
+        {
+            try
+            {
+                if (roomDto == null || string.IsNullOrWhiteSpace(roomDto.Id) || string.IsNullOrWhiteSpace(userId))
+                {
+                    return false;
+                }
+
+                var room = await _unitOfWork.Rooms.GetByIdAsync(roomDto.Id);
+                if (room == null || room.AdminId != userId || !room.IsActive)
+                {
+                    return false;
+                }
+
+                // Validate room name
+                if (string.IsNullOrWhiteSpace(roomDto.Name))
+                {
+                    return false;
+                }
+
+                room.Name = roomDto.Name.Trim();
+                room.IsPrivate = roomDto.IsPrivate;
+                room.AllowGuestControl = roomDto.AllowGuestControl;
+                room.AutoPlay = roomDto.AutoPlay;
+                room.SyncMode = roomDto.SyncMode ?? room.SyncMode;
+
+                // Handle password updates
+                if (roomDto.IsPrivate && !string.IsNullOrEmpty(roomDto.Password))
+                {
+                    room.PasswordHash = BCrypt.Net.BCrypt.HashPassword(roomDto.Password);
+                }
+                else if (!roomDto.IsPrivate)
+                {
+                    room.PasswordHash = null;
+                }
+
+                // Update permissions for non-admin users more efficiently
+                await UpdateNonAdminUserPermissions(roomDto.Id, room.AdminId, roomDto.AllowGuestControl);
+
+                _unitOfWork.Rooms.Update(room);
+                await _unitOfWork.SaveAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating room: {RoomId}", roomDto?.Id);
+                return false;
+            }
+        }
+
+        public async Task<bool> EndRoomAsync(string roomId, string userId)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(roomId) || string.IsNullOrWhiteSpace(userId))
+                {
+                    return false;
+                }
+
+                var room = await _unitOfWork.Rooms.GetByIdAsync(roomId);
+                if (room == null || room.AdminId != userId || !room.IsActive)
+                {
+                    return false;
+                }
+
+                room.IsActive = false;
+                room.EndedAt = DateTime.UtcNow;
+                _unitOfWork.Rooms.Update(room);
+
+                // Remove all users from the room more efficiently
+                await RemoveAllUsersFromRoom(roomId);
+                await _unitOfWork.SaveAsync();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error ending room: {RoomId}", roomId);
+                return false;
+            }
+        }
+
+        public async Task<bool> JoinRoomAsync(string roomId, string userId, string password = null)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(roomId) || string.IsNullOrWhiteSpace(userId))
+                {
+                    return false;
+                }
+
+                var room = await _unitOfWork.Rooms.GetByIdAsync(roomId);
+                if (room == null || !room.IsActive)
+                {
+                    return false;
+                }
+
+                // Verify password for private rooms
+                if (room.IsPrivate && !string.IsNullOrEmpty(room.PasswordHash))
+                {
+                    if (string.IsNullOrEmpty(password) || !BCrypt.Net.BCrypt.Verify(password, room.PasswordHash))
+                    {
+                        return false;
+                    }
+                }
+
+                // Check if user is already in the room
+                if (await IsUserInRoomAsync(roomId, userId))
+                {
+                    return true; // Already in room
+                }
+
+                var user = await _userManager.FindByIdAsync(userId);
+                if (user == null)
+                {
+                    return false;
+                }
+
+                var roomUser = new RoomUser
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    RoomId = roomId,
+                    UserId = userId,
+                    DisplayName = user.DisplayName ?? user.UserName ?? "Unknown User",
+                    HasPlaybackControl = room.AdminId == userId || room.AllowGuestControl,
+                    HasVolumeControl = true,
+                    JoinedAt = DateTime.UtcNow
+                };
+
+                await _unitOfWork.RoomUsers.CreateAsync(roomUser);
+                await _unitOfWork.SaveAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error joining room: {RoomId}, User: {UserId}", roomId, userId);
+                return false;
+            }
+        }
+
+        public async Task<bool> JoinRoomAsGuestAsync(string roomId, string displayName, string password = null)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(roomId) || string.IsNullOrWhiteSpace(displayName))
+                {
+                    return false;
+                }
+
+                var room = await _unitOfWork.Rooms.GetByIdAsync(roomId);
+                if (room == null || !room.IsActive)
+                {
+                    return false;
+                }
+
+                // Verify password for private rooms
+                if (room.IsPrivate && !string.IsNullOrEmpty(room.PasswordHash))
+                {
+                    if (string.IsNullOrEmpty(password) || !BCrypt.Net.BCrypt.Verify(password, room.PasswordHash))
+                    {
+                        return false;
+                    }
+                }
+
+                var trimmedDisplayName = displayName.Trim();
+                var guestId = Guid.NewGuid().ToString();
+                
+                var guestUser = new GuestUser
+                {
+                    Id = guestId,
+                    DisplayName = trimmedDisplayName,
+                    LastSeen = DateTime.UtcNow,
+                    Avatar = $"https://ui-avatars.com/api/?name={Uri.EscapeDataString(trimmedDisplayName)}&background=random"
+                };
+
+                await _unitOfWork.GuestUsers.CreateAsync(guestUser);
+
+                var roomUser = new RoomUser
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    RoomId = roomId,
+                    GuestId = guestId,
+                    DisplayName = trimmedDisplayName,
+                    HasPlaybackControl = room.AllowGuestControl,
+                    HasVolumeControl = true,
+                    JoinedAt = DateTime.UtcNow
+                };
+
+                await _unitOfWork.RoomUsers.CreateAsync(roomUser);
+                await _unitOfWork.SaveAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error joining room as guest: {RoomId}, DisplayName: {DisplayName}", roomId, displayName);
+                return false;
+            }
+        }
+
+        public async Task<bool> LeaveRoomAsync(string roomId, string userId)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(roomId) || string.IsNullOrWhiteSpace(userId))
+                {
+                    return false;
+                }
+
+                var room = await _unitOfWork.Rooms.GetByIdAsync(roomId);
+                if (room == null)
+                {
+                    return false;
+                }
+
+                // Find the room user
+                var roomUser = await GetRoomUserByUserIdAsync(roomId, userId);
+                if (roomUser == null)
+                {
+                    return false;
+                }
+
+                // If admin is leaving, end the room
+                if (room.AdminId == userId)
+                {
+                    return await EndRoomAsync(roomId, userId);
+                }
+                else
+                {
+                    // Regular user leaving
+                    await _unitOfWork.RoomUsers.DeleteAsync(roomUser.Id);
+                    await _unitOfWork.SaveAsync();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error leaving room: {RoomId}, User: {UserId}", roomId, userId);
+                return false;
+            }
+        }
+
+        public async Task<bool> GuestLeaveRoomAsync(string roomId, string guestId)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(roomId) || string.IsNullOrWhiteSpace(guestId))
+                {
+                    return false;
+                }
+
+                var roomUser = await GetRoomUserByGuestIdAsync(roomId, guestId);
+                if (roomUser == null)
+                {
+                    return false;
+                }
+
+                await _unitOfWork.RoomUsers.DeleteAsync(roomUser.Id);
+                await _unitOfWork.GuestUsers.DeleteAsync(guestId);
+                await _unitOfWork.SaveAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error guest leaving room: {RoomId}, Guest: {GuestId}", roomId, guestId);
+                return false;
+            }
+        }
+
+        public async Task<bool> UpdateUserPermissionsAsync(string roomId, string targetUserId, string adminId, RoomUserPermissionDto permissions)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(roomId) || string.IsNullOrWhiteSpace(targetUserId) || 
+                    string.IsNullOrWhiteSpace(adminId) || permissions == null)
+                {
+                    return false;
+                }
+
+                var room = await _unitOfWork.Rooms.GetByIdAsync(roomId);
+                if (room == null || room.AdminId != adminId || !room.IsActive)
+                {
+                    return false;
+                }
+
+                // Find the target user (could be registered user or guest)
+                var targetRoomUser = await GetRoomUserByUserIdOrGuestIdAsync(roomId, targetUserId);
+                if (targetRoomUser == null)
+                {
+                    return false;
+                }
+
+                // Don't allow changing admin permissions
+                if (room.AdminId == targetRoomUser.UserId)
+                {
+                    return false;
+                }
+
+                targetRoomUser.HasPlaybackControl = permissions.HasPlaybackControl;
+                targetRoomUser.HasVolumeControl = permissions.HasVolumeControl;
+
+                _unitOfWork.RoomUsers.Update(targetRoomUser);
+                await _unitOfWork.SaveAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating user permissions: Room: {RoomId}, Target: {TargetUserId}", roomId, targetUserId);
+                return false;
+            }
+        }
+
+        public async Task<bool> UpdatePlaybackStateAsync(string roomId, string userId, double position, bool isPlaying)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(roomId) || string.IsNullOrWhiteSpace(userId) || position < 0)
+                {
+                    return false;
+                }
+
+                var room = await _unitOfWork.Rooms.GetByIdAsync(roomId);
+                if (room == null || !room.IsActive)
+                {
+                    return false;
+                }
+
+                // Check if user has playback control
+                var roomUser = await GetRoomUserByUserIdOrGuestIdAsync(roomId, userId);
+                if (roomUser == null || !roomUser.HasPlaybackControl)
+                {
+                    return false;
+                }
+
+                room.CurrentPosition = position;
+                room.IsPlaying = isPlaying;
+
+                _unitOfWork.Rooms.Update(room);
+                await _unitOfWork.SaveAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating playback state: Room: {RoomId}, User: {UserId}", roomId, userId);
+                return false;
+            }
+        }
+
+        public async Task<string> GenerateInviteLink(string roomId)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(roomId))
+                {
+                    return null;
+                }
+
+                var room = await _unitOfWork.Rooms.GetByIdAsync(roomId);
+                if (room == null || !room.IsActive)
+                {
+                    return null;
+                }
+                return $"/watch-party/join/{room.InviteCode}";
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error generating invite link for room: {RoomId}", roomId);
+                return null;
+            }
+        }
+
+        public async Task<bool> IsUserInRoomAsync(string roomId, string userId)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(roomId) || string.IsNullOrWhiteSpace(userId))
+                {
+                    return false;
+                }
+
+                var roomUser = await GetRoomUserByUserIdOrGuestIdAsync(roomId, userId);
+                return roomUser != null;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error checking if user is in room: {RoomId}, User: {UserId}", roomId, userId);
+                return false;
+            }
+        }
+
+        public async Task<bool> IsUserAdminAsync(string roomId, string userId)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(roomId) || string.IsNullOrWhiteSpace(userId))
+                {
+                    return false;
+                }
+
+                var room = await _unitOfWork.Rooms.GetByIdAsync(roomId);
+                return room != null && room.AdminId == userId;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error checking if user is admin: {RoomId}, User: {UserId}", roomId, userId);
+                return false;
+            }
+        }
+
+        public async Task<bool> TransferAdminAsync(string roomId, string currentAdminId, string newAdminId)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(roomId) || string.IsNullOrWhiteSpace(currentAdminId) || 
+                    string.IsNullOrWhiteSpace(newAdminId))
+                {
+                    return false;
+                }
+
+                var room = await _unitOfWork.Rooms.GetByIdAsync(roomId);
+                if (room == null || room.AdminId != currentAdminId || !room.IsActive)
+                {
+                    return false;
+                }
+
+                // Verify the new admin is a registered user in the room (not guest)
+                var newAdminRoomUser = await GetRoomUserByUserIdAsync(roomId, newAdminId);
+                if (newAdminRoomUser == null || !string.IsNullOrEmpty(newAdminRoomUser.GuestId))
+                {
+                    return false; // Can't transfer admin to guest user
+                }
+
+                room.AdminId = newAdminId;
+                newAdminRoomUser.HasPlaybackControl = true;
+                newAdminRoomUser.HasVolumeControl = true;
+
+                _unitOfWork.Rooms.Update(room);
+                _unitOfWork.RoomUsers.Update(newAdminRoomUser);
+                await _unitOfWork.SaveAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error transferring admin: Room: {RoomId}, From: {CurrentAdminId}, To: {NewAdminId}",
+                    roomId, currentAdminId, newAdminId);
+                return false;
+            }
+        }
+
+        public async Task<IEnumerable<RoomUserDto>> GetRoomUsersAsync(string roomId)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(roomId))
+                {
+                    return Enumerable.Empty<RoomUserDto>();
+                }
+
+                var room = await _unitOfWork.Rooms.GetByIdAsync(roomId);
+                if (room == null || !room.IsActive)
+                {
+                    return Enumerable.Empty<RoomUserDto>();
+                }
+
+                var roomUsers = await GetRoomUsersByRoomIdAsync(roomId);
+                var result = new List<RoomUserDto>();
+
+                foreach (var roomUser in roomUsers)
+                {
+                    var userDto = await MapToRoomUserDtoAsync(roomUser, room);
+                    result.Add(userDto);
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error getting room users: {RoomId}", roomId);
+                return Enumerable.Empty<RoomUserDto>();
+            }
+        }
+
+        public async Task<IEnumerable<RegisteredRoomUserDto>> GetRegisteredRoomUsersAsync(string roomId)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(roomId))
+                {
+                    return Enumerable.Empty<RegisteredRoomUserDto>();
+                }
+
+                var room = await _unitOfWork.Rooms.GetByIdAsync(roomId);
+                if (room == null || !room.IsActive)
+                {
+                    return Enumerable.Empty<RegisteredRoomUserDto>();
+                }
+
+                var roomUsers = await GetRoomUsersByRoomIdAsync(roomId);
+                var registeredUsers = roomUsers.Where(ru => !string.IsNullOrEmpty(ru.UserId)).ToList();
+
+                var result = new List<RegisteredRoomUserDto>();
+
+                foreach (var roomUser in registeredUsers)
+                {
+                    var user = await _userManager.FindByIdAsync(roomUser.UserId);
+                    if (user != null)
+                    {
+                        var userDto = new RegisteredRoomUserDto
+                        {
+                            UserId = roomUser.UserId,
+                            DisplayName = roomUser.DisplayName,
+                            HasPlaybackControl = roomUser.HasPlaybackControl,
+                            Avatar = user.AvatarUrl ?? GenerateDefaultAvatar(roomUser.DisplayName),
+                            IsAdmin = room.AdminId == roomUser.UserId
+                        };
+
+                        result.Add(userDto);
+                    }
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error getting registered room users: {RoomId}", roomId);
+                return Enumerable.Empty<RegisteredRoomUserDto>();
+            }
+        }
+
+        #region Helper Methods
+
+        private async Task<IEnumerable<RoomUser>> GetRoomUsersByRoomIdAsync(string roomId)
+        {
+            var allRoomUsers = await _unitOfWork.RoomUsers.GetAllAsync();
+            return allRoomUsers.Where(ru => ru.RoomId == roomId);
+        }
+
+        private async Task<RoomUser> GetRoomUserByUserIdAsync(string roomId, string userId)
+        {
+            var roomUsers = await GetRoomUsersByRoomIdAsync(roomId);
+            return roomUsers.FirstOrDefault(ru => ru.UserId == userId);
+        }
+
+        private async Task<RoomUser> GetRoomUserByGuestIdAsync(string roomId, string guestId)
+        {
+            var roomUsers = await GetRoomUsersByRoomIdAsync(roomId);
+            return roomUsers.FirstOrDefault(ru => ru.GuestId == guestId);
+        }
+
+        private async Task<RoomUser> GetRoomUserByUserIdOrGuestIdAsync(string roomId, string userIdOrGuestId)
+        {
+            var roomUsers = await GetRoomUsersByRoomIdAsync(roomId);
+            return roomUsers.FirstOrDefault(ru => ru.UserId == userIdOrGuestId || ru.GuestId == userIdOrGuestId);
+        }
+
+        private async Task RemoveAllUsersFromRoom(string roomId)
+        {
+            var usersInRoom = await GetRoomUsersByRoomIdAsync(roomId);
+            foreach (var user in usersInRoom)
+            {
+                await _unitOfWork.RoomUsers.DeleteAsync(user.Id);
+            }
+        }
+
+        private async Task UpdateNonAdminUserPermissions(string roomId, string adminId, bool allowGuestControl)
+        {
+            var roomUsers = await GetRoomUsersByRoomIdAsync(roomId);
+            var nonAdminUsers = roomUsers.Where(ru => ru.UserId != adminId).ToList();
+            
+            foreach (var roomUser in nonAdminUsers)
+            {
+                roomUser.HasPlaybackControl = allowGuestControl;
+                _unitOfWork.RoomUsers.Update(roomUser);
+            }
+        }
+
+        private string GenerateInviteCode()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var random = new Random();
+            return new string(Enumerable.Repeat(chars, 8)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        private string GenerateDefaultAvatar(string displayName)
+        {
+            return $"https://ui-avatars.com/api/?name={Uri.EscapeDataString(displayName)}&background=random";
+        }
+
+        private async Task<RoomUserDto> MapToRoomUserDtoAsync(RoomUser roomUser, Room room)
+        {
+            var userDto = new RoomUserDto
+            {
+                Id = roomUser.Id,
+                DisplayName = roomUser.DisplayName,
+                UserId = roomUser.UserId,
+                GuestId = roomUser.GuestId,
+                HasPlaybackControl = roomUser.HasPlaybackControl,
+                HasVolumeControl = roomUser.HasVolumeControl,
+                JoinedAt = roomUser.JoinedAt,
+                IsAdmin = room.AdminId == roomUser.UserId
+            };
+
+            // Set avatar URL
+            if (!string.IsNullOrEmpty(roomUser.UserId))
+            {
+                var user = await _userManager.FindByIdAsync(roomUser.UserId);
+                userDto.AvatarUrl = user?.AvatarUrl ?? GenerateDefaultAvatar(roomUser.DisplayName);
+            }
+            else if (!string.IsNullOrEmpty(roomUser.GuestId))
+            {
+                var allGuests = await _unitOfWork.GuestUsers.GetAllAsync();
+                var guest = allGuests.FirstOrDefault(g => g.Id == roomUser.GuestId);
+                userDto.AvatarUrl = guest?.Avatar ?? GenerateDefaultAvatar(roomUser.DisplayName);
+            }
+            else
+            {
+                userDto.AvatarUrl = GenerateDefaultAvatar(roomUser.DisplayName);
+            }
+
+            return userDto;
+        }
+
+        private RoomDto MapToRoomDto(Room room)
+        {
+            return new RoomDto
+            {
+                Id = room.Id,
+                Name = room.Name,
+                MovieId = room.MovieId,
+                MovieTitle = room.Movie?.Title,
+                MoviePosterUrl = room.Movie?.PosterUrl,
+                AdminId = room.AdminId,
+                AdminName = room.Admin?.DisplayName ?? room.Admin?.UserName,
+                IsActive = room.IsActive,
+                CreatedAt = room.CreatedAt,
+                InviteCode = room.InviteCode,
+                IsPrivate = room.IsPrivate,
+                HasPassword = !string.IsNullOrEmpty(room.PasswordHash),
+                AllowGuestControl = room.AllowGuestControl,
+                UserCount = room.RoomUsers?.Count ?? 0
+            };
+        }
+
+        private RoomDetailDto MapRoomToRoomDetailDto(Room room)
+        {
+            if (room == null)
+                return null;
+
+            var roomDetailDto = new RoomDetailDto
+            {
+                // Base RoomDto properties
+                Id = room.Id,
+                Name = room.Name,
+                MovieId = room.MovieId,
+                MovieTitle = room.Movie?.Title ?? string.Empty,
+                MoviePosterUrl = room.Movie?.PosterUrl ?? string.Empty,
+                AdminId = room.AdminId,
+                AdminName = room.Admin?.DisplayName ?? room.Admin?.Email ?? "Unknown",
+                IsActive = room.IsActive,
+                CreatedAt = room.CreatedAt,
+                InviteCode = room.InviteCode,
+                IsPrivate = room.IsPrivate,
+                HasPassword = !string.IsNullOrEmpty(room.PasswordHash),
+                AllowGuestControl = room.AllowGuestControl,
+                UserCount = room.RoomUsers?.Count ?? 0,
+
+                // RoomDetailDto specific properties
+                CurrentPosition = room.CurrentPosition,
+                IsPlaying = room.IsPlaying,
+                SyncMode = room.SyncMode,
+                AutoPlay = room.AutoPlay,
+
+                // Map users
+                Users = room.RoomUsers?.Select(ru => new RoomUserDto
+                {
+                    Id = ru.Id,
+                    UserId = ru.UserId,
+                    GuestId = ru.GuestId,
+                    DisplayName = ru.User?.DisplayName ?? ru.Guest?.DisplayName ?? "Unknown",
+                    JoinedAt = ru.JoinedAt,
+                    HasPlaybackControl = ru.HasPlaybackControl,
+                    HasVolumeControl = ru.HasVolumeControl,
+                    IsAdmin = room.AdminId == ru.UserId,
+                    AvatarUrl = ru.User?.AvatarUrl ?? ru.Guest?.Avatar ?? GenerateDefaultAvatar(ru.DisplayName)
+                }).ToList() ?? new List<RoomUserDto>(),
+
+                // Map movie details
+                Movie = room.Movie != null ? new MovieDetailDto
+                {
+                    Id = room.Movie.Id,
+                    Title = room.Movie.Title,
+                    Description = room.Movie.Description ?? string.Empty,
+                    PosterUrl = room.Movie.PosterUrl ?? string.Empty,
+                    ReleaseYear = room.Movie.ReleaseYear ?? string.Empty,
+                    Duration = room.Movie.Duration,
+                    Rating = room.Movie.Rating
+                } : null
+            };
+
+            return roomDetailDto;
+        }
+
+        private class RoomIdComparer : IEqualityComparer<Room>
+        {
+            public bool Equals(Room x, Room y)
+            {
+                if (x == null && y == null) return true;
+                if (x == null || y == null) return false;
+                return x.Id == y.Id;
+            }
+
+            public int GetHashCode(Room obj)
+            {
+                return obj?.Id?.GetHashCode() ?? 0;
+            }
+        }
+
+        #endregion
+    }
+}
+
