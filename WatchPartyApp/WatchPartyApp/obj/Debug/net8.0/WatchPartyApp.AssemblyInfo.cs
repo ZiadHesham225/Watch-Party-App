@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WatchPartyApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73e943a86f9acb414faa83da5e1f1d6e796e2a46")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1473958df8d750960b5a1bcc38ce47c2f5e7cbaf")]
 [assembly: System.Reflection.AssemblyProductAttribute("WatchPartyApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WatchPartyApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

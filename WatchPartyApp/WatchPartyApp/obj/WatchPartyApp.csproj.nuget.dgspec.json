@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp.csproj": {}
+    "C:\\Users\\hesha\\Desktop\\test\\Watch-Party-App\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp.csproj": {
+    "C:\\Users\\hesha\\Desktop\\test\\Watch-Party-App\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp.csproj",
+        "projectUniqueName": "C:\\Users\\hesha\\Desktop\\test\\Watch-Party-App\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp.csproj",
         "projectName": "WatchPartyApp",
-        "projectPath": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp.csproj",
+        "projectPath": "C:\\Users\\hesha\\Desktop\\test\\Watch-Party-App\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp.csproj",
         "packagesPath": "C:\\Users\\hesha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\obj\\",
+        "outputPath": "C:\\Users\\hesha\\Desktop\\test\\Watch-Party-App\\WatchPartyApp\\WatchPartyApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
