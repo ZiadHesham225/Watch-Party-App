@@ -26,10 +26,10 @@ namespace WatchPartyApp.BusinessLogic.Services
         {
             try
             {
-                // Validate input
-                if (string.IsNullOrWhiteSpace(roomDto.Name) || string.IsNullOrWhiteSpace(roomDto.VideoUrl))
+                // Validate input - video URL is now optional
+                if (string.IsNullOrWhiteSpace(roomDto.Name))
                 {
-                    _logger.LogWarning("Room creation failed: Room name and video URL are required");
+                    _logger.LogWarning("Room creation failed: Room name is required");
                     return null;
                 }
 
@@ -37,7 +37,7 @@ namespace WatchPartyApp.BusinessLogic.Services
                 {
                     Id = Guid.NewGuid().ToString(),
                     Name = roomDto.Name.Trim(),
-                    VideoUrl = roomDto.VideoUrl,
+                    VideoUrl = roomDto.VideoUrl ?? "", // Allow empty video URL
                     AdminId = userId,
                     IsActive = true,
                     CreatedAt = DateTime.UtcNow,

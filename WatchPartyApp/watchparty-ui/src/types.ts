@@ -46,7 +46,7 @@ export interface PlaybackState {
 
 export interface RoomCreateRequest {
     name: string;
-    videoUrl: string;
+    videoUrl?: string; // Made optional
     isPrivate: boolean;
     password?: string;
     autoPlay: boolean;
@@ -111,6 +111,24 @@ export interface JwtClaims {
     nameid?: string;
     unique_name?: string;
     [key: string]: any; // Allow for dynamic claims
+}
+
+// YouTube Types
+export interface YouTubeVideo {
+    videoId: string;
+    title: string;
+    description: string;
+    thumbnailUrl: string;
+    channelTitle: string;
+    duration: string;
+    publishedAt: string;
+    videoUrl: string;
+}
+
+export interface YouTubeSearchResponse {
+    videos: YouTubeVideo[];
+    nextPageToken?: string;
+    totalResults: number;
 }
 
 export {};

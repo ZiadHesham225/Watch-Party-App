@@ -78,6 +78,7 @@ namespace WatchPartyApp
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<IEmailService, EmailService>();
             builder.Services.AddScoped<IRoomService, RoomService>();
+            builder.Services.AddScoped<IYouTubeService, YouTubeService>();
             builder.Services.AddScoped<IRoomRepository, RoomRepository>();
             builder.Services.AddScoped<IGenericRepository<Room>, GenericRepository<Room>>();
             

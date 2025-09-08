@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\hubs\\roomhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\hubs\\roomhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\controllers\\roomcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\controllers\\roomcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\data\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\hubs\\roomhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|solutionrelative:watchpartyapp\\hubs\\roomhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4D9E89CA-AFDD-4BFC-9181-22351AD37527}|WatchPartyApp\\WatchPartyApp.csproj|c:\\users\\hesha\\documents\\csharp\\watchpartyapp\\watchpartyapp\\watchpartyapp\\data\\watchpartydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -170,7 +170,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1831,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -186,15 +186,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "RoomHub.cs",
               "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Hubs\\RoomHub.cs",
               "RelativeDocumentMoniker": "WatchPartyApp\\Hubs\\RoomHub.cs",
               "ToolTip": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Hubs\\RoomHub.cs",
               "RelativeToolTip": "WatchPartyApp\\Hubs\\RoomHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAApwEEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-06T22:09:21.779Z"
+              "WhenOpened": "2025-05-06T22:09:21.779Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -234,7 +235,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "RoomController.cs",
               "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Controllers\\RoomController.cs",
               "RelativeDocumentMoniker": "WatchPartyApp\\Controllers\\RoomController.cs",
@@ -295,7 +296,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UnitOfWork.cs",
               "DocumentMoniker": "C:\\Users\\hesha\\Documents\\CSharp\\WatchPartyApp\\WatchPartyApp\\WatchPartyApp\\Data\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "WatchPartyApp\\Data\\UnitOfWork.cs",

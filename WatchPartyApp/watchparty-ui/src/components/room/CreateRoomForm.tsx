@@ -63,7 +63,7 @@ const CreateRoomForm: React.FC<CreateRoomFormProps> = ({ onClose }) => {
     }));
   };
 
-  const isFormValid = formData.name && formData.videoUrl;
+  const isFormValid = formData.name; // Only require name, video URL is optional
 
   const formContent = (
     <form onSubmit={handleSubmit} className="space-y-4 p-6">
@@ -76,14 +76,13 @@ const CreateRoomForm: React.FC<CreateRoomFormProps> = ({ onClose }) => {
         required
       />
       <Input
-        label="Video URL"
+        label="Video URL (Optional)"
         type="url"
         name="videoUrl"
         value={formData.videoUrl}
         onChange={handleChange}
         icon={Video}
-        placeholder="https://youtube.com/watch?v=... or direct video URL"
-        required
+        placeholder="https://youtube.com/watch?v=... or direct video URL (leave empty to choose later)"
       />
       <div className="flex items-center">
         <input

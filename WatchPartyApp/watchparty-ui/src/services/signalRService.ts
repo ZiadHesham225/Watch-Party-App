@@ -308,6 +308,10 @@ class SignalRService {
     public async kickUser(roomId: string, userIdToKick: string) {
         await this.connection?.invoke("KickUser", roomId, userIdToKick);
     }
+
+    public async changeVideo(roomId: string, videoUrl: string, videoTitle: string, videoThumbnail?: string) {
+        await this.connection?.invoke("ChangeVideo", roomId, videoUrl, videoTitle, videoThumbnail);
+    }
 }
 
 const signalRService = new SignalRService();

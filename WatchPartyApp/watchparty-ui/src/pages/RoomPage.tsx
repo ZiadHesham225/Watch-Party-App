@@ -7,7 +7,9 @@ import { useAuth } from '../contexts/AuthContext';
 import { apiService } from '../services/api';
 import signalRService from '../services/signalRService';
 import Header from '../components/common/Header';
-import VideoPlayer from '../components/room/VideoPlayer';
+import EnhancedVideoPlayer from '../components/room/EnhancedVideoPlayer';
+import VideoSelector from '../components/room/VideoSelector';
+import VideoControlPanel from '../components/room/VideoControlPanel';
 import ChatPanel from '../components/room/ChatPanel';
 import ParticipantsList from '../components/room/ParticipantsList';
 import AuthModal from '../components/auth/AuthModal';
@@ -162,6 +164,7 @@ const RoomPage: React.FC = () => {
         const originalOnUserLeft = signalRService.onUserLeft;
         const originalOnReceivePlaybackState = signalRService.onReceivePlaybackState;
         const originalOnUserKicked = signalRService.onUserKicked;
+        const originalOnVideoChanged = signalRService.onVideoChanged;
         const originalOnReceiveRoomParticipants = signalRService.onReceiveRoomParticipants;
 
         signalRService.onReceiveMessage = (message: ChatMessage) => {
@@ -289,12 +292,26 @@ const RoomPage: React.FC = () => {
             navigate('/');
         };
 
+        signalRService.onVideoChanged = (videoUrl: string, videoTitle: string, videoThumbnail?: string) => {
+            // Update room data with new video
+            setRoomData(prev => prev ? { ...prev, videoUrl } : null);
+            
+            // Reset video state
+            setCurrentPosition(0);
+            setVideoDuration(0);
+            setIsPlaying(false);
+            
+            // Show success message
+            toast.success(`Video changed to: ${videoTitle}`);
+        };
+
         return () => {
             signalRService.onReceiveMessage = originalOnReceiveMessage;
             signalRService.onUserJoined = originalOnUserJoined;
             signalRService.onUserLeft = originalOnUserLeft;
             signalRService.onReceivePlaybackState = originalOnReceivePlaybackState;
             signalRService.onUserKicked = originalOnUserKicked;
+            signalRService.onVideoChanged = originalOnVideoChanged;
             signalRService.onReceiveRoomParticipants = originalOnReceiveRoomParticipants;
         };
     }, []);
@@ -323,7 +340,21 @@ const RoomPage: React.FC = () => {
         const confirmed = window.confirm(`Are you sure you want to kick ${username} from the room?`);
         if (confirmed && roomData) {
             console.log('Sending kick request for user:', userId);
+            
+            // Check if the kicked user has control
+            const kickedUserHasControl = participant?.hasControl || false;
+            
+            // Kick the user
             signalRService.kickUser(roomData.id, userId);
+            
+            // If the kicked user had control, transfer control back to admin
+            if (kickedUserHasControl && roomData.adminId) {
+                console.log('Kicked user had control, transferring control back to admin:', roomData.adminId);
+                // Small delay to ensure kick is processed first
+                setTimeout(() => {
+                    signalRService.transferControl(roomData.id, roomData.adminId);
+                }, 100);
+            }
         }
     };
 
@@ -374,6 +405,18 @@ const RoomPage: React.FC = () => {
 
     const handleVideoDurationUpdate = (duration: number) => {
         setVideoDuration(duration);
+    };
+
+    const handleVideoSelect = async (videoUrl: string, videoTitle: string, videoThumbnail?: string) => {
+        if (!roomId) return;
+        
+        try {
+            await signalRService.changeVideo(roomId, videoUrl, videoTitle, videoThumbnail);
+            // The video change will be reflected via the SignalR event
+        } catch (error) {
+            toast.error('Failed to change video');
+            console.error('Video change error:', error);
+        }
     };
 
     const handleAuthSuccess = () => {
@@ -519,25 +562,44 @@ const RoomPage: React.FC = () => {
             </div>
 
             {/* Main Content - Professional grid layout */}
-            <div className="px-6 py-6 flex-grow" style={{ minHeight: 'calc(100vh - 200px)' }}>
+            <div 
+                id="fullscreen-container" 
+                className="px-6 py-6 flex-grow" 
+                style={{ minHeight: 'calc(100vh - 200px)' }}
+            >
                 <div className="room-main-content grid grid-cols-1 lg:grid-cols-3 gap-8 lg:h-full lg:overflow-hidden">
                     
                     {/* Video Player - Takes 2/3 of the space */}
                     <div className="room-video-section lg:col-span-2">
-                        <div className="bg-black rounded-xl shadow-lg overflow-hidden h-full">
+                        <div className="bg-black rounded-xl shadow-lg overflow-hidden h-full relative">
                             <div className="aspect-video lg:h-full">
-                                <VideoPlayer
-                                    src={roomData.videoUrl}
-                                    isPlaying={isPlaying}
-                                    position={currentPosition}
-                                    duration={videoDuration}
-                                    onPlay={handleVideoPlay}
-                                    onPause={handleVideoPause}
-                                    onSeek={handleVideoSeek}
-                                    onTimeUpdate={handleVideoTimeUpdate}
-                                    onDurationUpdate={handleVideoDurationUpdate}
-                                    hasControl={currentUserHasControl}
-                                />
+                                {roomData.videoUrl ? (
+                                    <>
+                                        <EnhancedVideoPlayer
+                                            src={roomData.videoUrl}
+                                            isPlaying={isPlaying}
+                                            position={currentPosition}
+                                            duration={videoDuration}
+                                            onPlay={handleVideoPlay}
+                                            onPause={handleVideoPause}
+                                            onSeek={handleVideoSeek}
+                                            onTimeUpdate={handleVideoTimeUpdate}
+                                            onDurationUpdate={handleVideoDurationUpdate}
+                                            hasControl={currentUserHasControl}
+                                        />
+                                        <VideoControlPanel
+                                            hasControl={currentUserHasControl}
+                                            onVideoSelect={handleVideoSelect}
+                                        />
+                                    </>
+                                ) : (
+                                    <div className="w-full h-full bg-gray-900 flex items-center justify-center">
+                                        <VideoSelector
+                                            onVideoSelect={handleVideoSelect}
+                                            hasControl={currentUserHasControl}
+                                        />
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
